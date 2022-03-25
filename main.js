@@ -8,7 +8,7 @@ let sumaeH = 0; //suma de estaturas hombres
 let m = 0; //acumulador mujeres
 let h = 0; //acumulador hombres
 let i = 0; //acumulador iteración
-let input;
+let input; //Asignación de input (si/no)
 
 let nombre = prompt("Ingresa tu nombre");
 alert(`Hola ${nombre}. Vamos a calcular el promedio de estura por sexo en centímetros de las personas ingresadas`)
