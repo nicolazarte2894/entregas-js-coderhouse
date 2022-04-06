@@ -1,4 +1,4 @@
-//ENTREGA JS N°1 - Nicolás Lazarte
+//ENTREGA JS Complementario N°1 - Nicolás Lazarte
 
 //Definición y asignación de variables
 let eM = 0; //Estatura mujeres
