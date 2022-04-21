@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 14px;
+    font-family:'Poppins', sans-serif;
 }
 
 .login-page{
@@ -24,16 +25,91 @@
 }
 
 .diseño h1 , span{
-    font-size: 80px;
+    font-size: 90px;
     font-weight: 100;
     font-family: 'Anton', sans-serif;
     font-style: italic;
     color: white;
 }
 .diseño span{
-    color: #CCFF00;
+    color: #C3FA00;
 }
 
 .login-design{
     background-color: #fff;
+}
+
+.login-register{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.container-register, .container-login{
+    width: 70%;
+}
+h2{
+    font-size: 2rem;
+    font-weight: 20px;
+    font-family: 'Anton', sans-serif;
+    font-style: italic;
+}
+form{
+    width: 100%;
+    padding: 1rem 1rem ;
+}
+input{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: #E9ECEF;
+    margin: 1px auto;
+}
+button{
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    width: 50%;
+    margin-top: 0.5rem;
+    border-radius: 20px;
+    background-color: #000;
+    color: #fff;
+    transition: 0.5s all ease-in-out;
+    border-color: #000;
+    border-width: 1px;
+    line-height: 1.6rem;
+}
+button:hover{
+    cursor: pointer;
+    background-color: #C3FA00;
+    color: #000;
+    font-size: 1.3rem;
+}
+
+#password-requirement{
+    text-align: left;
+    margin: 0 auto;
+    width: 80%;
+}
+#password-requirement p,i{
+    font-size: 0.9rem;
+    color: #848F9A;
+}
+
+/*Validaciones*/
+.validar-nulo{
+    border-color: red;
+    background-color: rgb(241, 182, 182);
+}
+.valido{
+    border-color: #E9ECEF;
+    background-color: #fff;
+}
+.valid i{
+    color: green;
+}
+.no-valid i{
+    color: red;
 }
