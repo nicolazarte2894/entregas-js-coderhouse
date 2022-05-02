@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
 </head>
 <body>
-    <main class="login-page">
+    <main id="login-page">
         <div class="diseño">
             <h1>CODER<br><span>WALLET</span></h1>
         </div>
@@ -17,7 +17,7 @@
             <h1>Bienvenido a CODERWALLET</h1>
             <div class="container-register">
                 <h2>Registrarse</h2>
-                <form action="" class="register-form">                   
+                <form action="" id="register-form">                   
                     <input type="text" id="nombre" placeholder="Nombre">
                     <input type="text" id="apellido" placeholder="Apellido">
                     <input type="email" id="email" placeholder="Correo electrónico">
@@ -34,7 +34,7 @@
             </div>            
             <div class="container-login">
                 <h2>Iniciar Sesión</h2>
-                <form action="" class="login-form">
+                <form action="" id="login-form">
                     <input type="text" id="usuario-login" placeholder="Usuario o Correo electrónico" required>
                     <input type="password" id="password-login" placeholder="Contraseña" required>
                     <button id="btn-login">Iniciar Sesión</button>
@@ -46,6 +46,7 @@
 
     <!-- JAVASCRIPT -->
     <!-- <script src="./js/pre-entrega1.js"></script> -->
-    <script src="./js/dom-events.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>

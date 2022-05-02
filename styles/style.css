@@ -7,10 +7,13 @@
     font-family:'Poppins', sans-serif;
 }
 
-.login-page{
+
+
+#login-page{
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100vh;
+    position: relative;
 }
 
 .diseño{
@@ -112,4 +115,12 @@ button:hover{
 }
 .no-valid i{
     color: red;
+}
+
+/* Nuevos Divs */
+.div-alert{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    width: 40%;
+    box-shadow: 2px 2px 2px #000;
 }

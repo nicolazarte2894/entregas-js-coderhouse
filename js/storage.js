@@ -13,7 +13,7 @@ class Usuario {
 }
 
 //Definición de lista de usuarios y la función de registro
-let listaUsuarios = [];
+let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
 //FUNCIONES
 //Agregar Usuario
@@ -26,6 +26,7 @@ function agregarUsuario(){
     //CONSTRUCCION DE LA NUEVA CUENTA Y PUSHEO A LA LISTA DE USUARIOS
     let nuevoUsuario = new Usuario (nombre, apellido, email , usuario, password);
     listaUsuarios.push(nuevoUsuario);
+    localStorage.setItem("usuarios",JSON.stringify(listaUsuarios))
 }
 
 //VALIDACIONES - Retornan true si cumplen con los requisitos, sino realizan determinadas acciones
@@ -64,6 +65,14 @@ function validarLength(password){
         return true;
     }
 }
+
+//5 - Añadir nodo
+/* const loginPage = document.querySelector("#login-page")
+const nuevoNodo = () =>{
+    const nuevoDiv = document.createElement("div");
+    nuevoDiv.classList.add("div-alert")
+    loginPage.appendChild(nuevoDiv);
+} */
 
 
 //EVENTOS
@@ -114,34 +123,47 @@ password.addEventListener("input", () =>{
 );
 //Click Registro usuario
 const registrar = document.getElementById("btn-register");
+const registerForm = document.getElementById("register-form")
 registrar.onclick = (e) => {
     e.preventDefault();
     //Validación
     if(validarNulo(nombre)&&validarNulo(apellido)&&validarNulo(email)&&validarNulo(usuario)&&validarNumero(password.value)&&validarLowerCase(password.value)&&validarLength(password.value)){
         agregarUsuario();
-        alert("Felicidades. Te has registrado a Coder Wallet!!");
+        swal({
+            title: "Felicidades!",
+            text: "Se ha registrado a CoderWallet!",
+            icon: "success",
+        });
     } else {
-        // let nodoNuevo = document.createElement("div");
-        // nodoNuevo.innerHTML = "<p>No cumple con los requisitos. Por favor verifique los campos</p>";
-        // document.body.append(nodoNuevo);
-        alert("No cumple con los requisitos. Por favor verifique los campos!");
+        swal({
+            title: "Error!",
+            text: "Los campos ingresados no cumplen con los requisitos!",
+            icon: "error",
+        });
     }
+    registerForm.reset();
 }
 
 //Click Inicio Sesión
 const iniciarSesion = document.getElementById("btn-login");
-    //Get element
-    let usuarioLogin = document.getElementById("usuario-login");
-    let passwordLogin = document.getElementById("password-login");
+let usuarioLogin = document.getElementById("usuario-login");
+let passwordLogin = document.getElementById("password-login");
+const loginForm = document.getElementById("login-form")
 iniciarSesion.onclick = (e) => {
     e.preventDefault();
-
     //Validación
-    let confirmarUsuario = listaUsuarios.some(obj => (obj.usuario == usuarioLogin.value)||(obj.email == usuarioLogin.value));
-    let confirmarPassword = listaUsuarios.some(obj => obj.password == passwordLogin);
+    let confirmarUsuario = listaUsuarios.some(obj => obj.email == usuarioLogin.value || obj.usuario == usuarioLogin.value);
+    let confirmarPassword = listaUsuarios.some(obj => obj.password == passwordLogin.value);
     if (confirmarUsuario && confirmarPassword ) {
-        alert('Ha iniciado sesión. Bienvenido a Coder Wallet')
+        swal({
+            title: "Bienvenido a CoderWallet!",
+            icon: "success",
+        });
     } else {
-        alert('Acceso Denegado. Vuelva a intentarlo')
+        swal({
+            title: "Error en el Inicio de Sesión. Intente nuevamente!",
+            icon: "error",
+        });
     }
-}
+    loginForm.reset();
+};
