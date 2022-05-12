@@ -51,29 +51,12 @@ function validarNumero(password){
 }
 //3- Validar Lowecase
 function validarLowerCase(password){
-    if(password === password.toLowerCase()){
-        return false;
-    } else{
-        return true;
-    }
+    return !(password === password.toLowerCase());
 }
 //4- Validar Length (Mínimo 8 caracteres)
 function validarLength(password){
-    if(password.length<8){
-        return false;
-    } else {
-        return true;
-    }
+    return password.length>=8;
 }
-
-//5 - Añadir nodo
-/* const loginPage = document.querySelector("#login-page")
-const nuevoNodo = () =>{
-    const nuevoDiv = document.createElement("div");
-    nuevoDiv.classList.add("div-alert")
-    loginPage.appendChild(nuevoDiv);
-} */
-
 
 //EVENTOS
 //Validación ()
@@ -98,12 +81,14 @@ const password = document.querySelector("#password");
 password.addEventListener("input", () =>{
     validarNulo(password);
 });
+
+
 //Validación Password
 const req1 = document.getElementById("req-num");
 const req2 = document.getElementById("req-lower");
 const req3 = document.getElementById("req-length");
 password.addEventListener("input", () =>{
-    
+    /*
     if(validarNumero(password.value)){
         req1.className = "valid";
     }else{
@@ -118,12 +103,16 @@ password.addEventListener("input", () =>{
         req3.className = "valid";
     }else{
         req3.className = "no-valid";
-    }
+    }*/
+    //OPTIMIZACIÓN OPERADOR TERNARIO - Validación Password
+    validarNumero(password.value) ? req1.className = "valid" : req1.className = "no-valid";
+    validarLowerCase(password.value) ? req2.className = "valid" : req2.className = "no-valid";
+    validarLength(password.value) ? req3.className = "valid" : req3.className = "no-valid";
 }
 );
 //Click Registro usuario
 const registrar = document.getElementById("btn-register");
-const registerForm = document.getElementById("register-form")
+const registerForm = document.getElementById("register-form");
 registrar.onclick = (e) => {
     e.preventDefault();
     //Validación
@@ -167,3 +156,13 @@ iniciarSesion.onclick = (e) => {
     }
     loginForm.reset();
 };
+
+
+
+//5 - Añadir nodo
+/* const loginPage = document.querySelector("#login-page")
+const nuevoNodo = () =>{
+    const nuevoDiv = document.createElement("div");
+    nuevoDiv.classList.add("div-alert")
+    loginPage.appendChild(nuevoDiv);
+} */
